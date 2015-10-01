@@ -119,7 +119,7 @@ mod tests {
 	fn constructor_works() {
 		let path = Path::new("notexists");
 		if let Ok(_) = FileReader::new(&path) {
-			assert!(false);
+			panic!();
 		}
 	}
 		
@@ -128,11 +128,11 @@ mod tests {
 		let path = Path::new("src").join("test_files").join("test1");
 		let mut file = match FileReader::new(&path) {
 			Ok(val) => { val },
-			_ => { assert!(false); return; }
+			_ => { panic!(); return; }
 		};
 
 		if let Ok(_) = file.read() {
-			assert!(false);
+			panic!();
 		}
 	}
 
@@ -141,11 +141,11 @@ mod tests {
 		let path = Path::new("src").join("test_files").join("test2");
 		let mut file = match FileReader::new(&path) {
 			Ok(val) => { val },
-			_ => { assert!(false); return; }
+			_ => { panic!(); return; }
 		};
 
 		if let Err(_) = file.read() {
-			assert!(false);
+			panic!();
 		}
 	}
 
@@ -154,7 +154,7 @@ mod tests {
 		let path = Path::new("src").join("test_files").join("test3");
 		let mut file = match FileReader::new(&path) {
 			Ok(val) => { val },
-			_ => { assert!(false); return; }
+			_ => { panic!(); return; }
 		};
 
 		let map = file.read().unwrap();

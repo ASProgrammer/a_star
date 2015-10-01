@@ -123,7 +123,7 @@ mod tests {
 		map.insert(Vertex::new(0, 0), vec![]);
 	
 		if let Some(_) = AStar::find_path(&map, Vertex::new(0, 0), Vertex::new(1, 1)) {
-			assert!(false);
+			panic!();
 		}
 	}
 	
@@ -133,7 +133,7 @@ mod tests {
 		map.insert(Vertex::new(0, 0), vec![]);
 		
 		if let None = AStar::find_path(&map, Vertex::new(0, 0), Vertex::new(0, 0)) {
-			assert!(false);
+			panic!();
 		}
 	}
 
@@ -142,7 +142,7 @@ mod tests {
 		let path = Path::new("src").join("test_files").join("test4");
 		let mut file = match FileReader::new(&path) {
 			Ok(file) => { file },
-			_ => { assert!(false); return; }
+			_ => { panic!(); return; }
 		};
 	
 		let map = file.read().unwrap();
@@ -159,7 +159,7 @@ mod tests {
 		let finded_path = AStar::find_path(&map, Vertex::new(0, 0), Vertex::new(3, 3)).unwrap();
 		for node in finded_path {
 			if let None  = correct_path.iter().find(|ref_node| **ref_node == node) {
-				assert!(false);
+				panic!();
 			}
 		}
 	}
