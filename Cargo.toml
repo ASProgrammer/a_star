@@ -1,0 +1,4 @@
+[package]
+name = "astar"
+version = "0.1.0"
+authors = ["ASProgrammer <alexeyseledtsov@yandex.ru>"]
